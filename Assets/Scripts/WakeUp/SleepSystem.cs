@@ -8,14 +8,19 @@ public class SleepSystem : MonoBehaviour
     [SerializeField] private float wakeUpDelyPeriod = 1f;
     [SerializeField] private float wakeUpTime = 30;
 
-    private bool isWakeUp;
+    private bool isWakeUp , isWon;
     private float startTimer;
 
     private void Start()
     {
-        //TODO listen to the fucking event
+        MusicPlayer.OnLevelEnded += WakeUp;
+        TaskManger.instance.OnFinishAllTasks += () => { isWon = true; };
     }
-    public void WakeUp()
+    private void OnDestroy()
+    {
+        MusicPlayer.OnLevelEnded -= WakeUp;
+    }
+    public void WakeUp(int levelIndex)
     {
         StartCoroutine(WakeUpDely());
     }
@@ -30,6 +35,8 @@ public class SleepSystem : MonoBehaviour
     }
     void Sleep()
     {
+        TaskManger.instance.DeactiveTaskMenu();
+
         isWakeUp = false;
         laptop.SetActive(false);
         //TODO tell dehyat to do peace of shit stuff
@@ -37,7 +44,7 @@ public class SleepSystem : MonoBehaviour
 
     void LateUpdate()
     {
-        if (isWakeUp && Time.time - startTimer > wakeUpTime)
+        if (!isWon && isWakeUp && Time.time - startTimer > wakeUpTime)
         {
             Sleep();
         }

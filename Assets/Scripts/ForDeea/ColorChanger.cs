@@ -14,7 +14,7 @@ public class ColorChanger : MonoBehaviour
     private SpriteRenderer sprite;
     private GameObject outineChild;
 
-    private void Start()
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
         currentColor = 0;

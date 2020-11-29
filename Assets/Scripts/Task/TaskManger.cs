@@ -8,7 +8,7 @@ public class TaskManger : MonoBehaviour
 
     [SerializeField] private GameObject taskMenu;
     [SerializeField] private GameObject[] tasks;
-
+    [SerializeField] private SpriteRenderer[] spriteRenderers;
     public event Action OnFinishAllTasks;
 
     private bool[] isFinished;
@@ -55,20 +55,11 @@ public class TaskManger : MonoBehaviour
     {
         DeactiveTask(taskID);
         ActiveTaskMenu();
-
+        spriteRenderers[taskID].color = new Color(0.2487184f, 0.8396226f, 0.3403681f, 1);
         isFinished[taskID] = true;
         if (--unfinishedBusiness == 0)
         {
             OnFinishAllTasks?.Invoke();
         }
-    }
-    public bool IsAllTaskFinished()
-    {
-        for (int i = 0; i < isFinished.Length; i++)
-        {
-            if (!isFinished[i])
-                return false;
-        }
-        return true;
     }
 }

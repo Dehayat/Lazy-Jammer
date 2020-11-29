@@ -21,10 +21,6 @@ public class ScoreCounter : MonoBehaviour
         float currentScore = (1 - (score / pics.Length)) / 0.5f;
 
         scoreSlider.value = Mathf.Lerp(scoreSlider.value,currentScore,0.01f);
-
-        if (scoreSlider.value > 0.99f)
-        {
-            Debug.Log("You win");
-        }
+          
     }
 }

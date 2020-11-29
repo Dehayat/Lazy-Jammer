@@ -26,8 +26,8 @@ public class MusicPlayer : MonoBehaviour
         public AnimationCurve repeatMultiplier;
         public int lookBackRepeat;
     }
-    public event Action<int> OnLevelEnded;
-    public event Action<int> OnLevelStarted;
+    public static event Action<int> OnLevelEnded;
+    public static event Action<int> OnLevelStarted;
 
     public Text scoreText;
     public Slider scoreSlider;

@@ -7,6 +7,7 @@ public class SleepSystem : MonoBehaviour
     [SerializeField] private GameObject laptop;
     [SerializeField] private float wakeUpDelyPeriod = 1f;
     [SerializeField] private float wakeUpTime = 30;
+    [SerializeField] private MusicPlayer musicPlayer;
 
     private bool isWakeUp , isWon;
     private float startTimer;
@@ -39,7 +40,7 @@ public class SleepSystem : MonoBehaviour
 
         isWakeUp = false;
         laptop.SetActive(false);
-        //TODO tell dehyat to do peace of shit stuff
+        musicPlayer.NextLevel();
     }
 
     void LateUpdate()

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{92f822d3-2e0b-44bc-aa61-4a27088cba9f}">
+		<property name="assetPath">
+			<value>265249__wjtaylor__sigh.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.4367346938775509</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{75ed55f8-1ccd-4dc2-a2a3-bbe392464eb0}</destination>
+		</relationship>
+	</object>
+</objects>

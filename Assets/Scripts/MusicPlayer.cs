@@ -39,6 +39,8 @@ public class MusicPlayer : MonoBehaviour
 
     public bool isPlaying = true;
 
+    public bool isRandoming = false;
+
     public SoundData[] Sounds;
     public LevelData[] Levels;
     public Combo[] combos;
@@ -92,11 +94,25 @@ public class MusicPlayer : MonoBehaviour
         foreach (var effect in WinEffects)
         {
             effect.SetActive(true);
+            if (effect.GetComponent<ParticleSystem>() != null)
+            {
+                effect.GetComponent<ParticleSystem>().Play();
+            }
         }
     }
 
+    private float lastFireWorks = 0;
+
     private void Update()
     {
+
+        if (isRandoming && UnityEngine.Random.Range(0f, 1f) > 0.8f && lastFireWorks + 0.1f < Time.time)
+        {
+            lastFireWorks = Time.time;
+            Vector3 pos = new Vector3(UnityEngine.Random.Range(-5, 5), UnityEngine.Random.Range(-5, 5), 0);
+            Instantiate(Sounds[UnityEngine.Random.Range(0, Sounds.Length)].prefab, pos, Quaternion.identity);
+        }
+
         if (!isPlaying && currentLevel < Levels.Length) return;
         int i = 0;
 
@@ -187,6 +203,7 @@ public class MusicPlayer : MonoBehaviour
     public void NextLevel()
     {
         currentLevel++;
+        if (currentLevel == Levels.Length) currentLevel--;
         score = 0;
         lastSoundPosition = new Vector3(-100, -100);
         isPlaying = true;

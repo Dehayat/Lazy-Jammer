@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.01.00">
+	<object class="AudioFile" id="{52f6e31c-d004-45f8-ad06-501d79ee14ce}">
+		<property name="assetPath">
+			<value>162482__kastenfrosch__achievement.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.9036734693877548</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{75ed55f8-1ccd-4dc2-a2a3-bbe392464eb0}</destination>
+		</relationship>
+	</object>
+</objects>

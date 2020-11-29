@@ -48,3 +48,12 @@ The following packages were updated:
   com.unity.2d.animation from version 4.2.5 to 4.2.6
   com.unity.2d.psdimporter from version 3.1.5 to 3.1.6
   com.unity.2d.spriteshape from version 4.1.3 to 4.1.4
+
+=== Sat Nov 28 14:20:00 2020
+
+Packages were changed.
+Update Mode: mergeDefaultDependencies
+
+The following packages were added:
+  com.unity.postprocessing@2.3.0
+  com.unity.progrids@3.0.3-preview.4
